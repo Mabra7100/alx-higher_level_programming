@@ -1,9 +1,21 @@
 #!/usr/bin/python3
 import sys
 
-num_args = len(sys.argv)
-count = 1
-print("{} arguments:".format(num_args - 1))
-for arg in sys.argv[1:]:
-    print("{}: {}".format(count, arg))
-    count += 1
+def args(argv):
+    n = len(argv) - 1
+    if n == 0:
+        print("{:d} argument.".format(n))
+        return
+    else:
+        if n == 1:
+            print("{:d} argument:".format(n))
+        else:
+            print("{:d} arguments:".format(n))
+        i = 1
+        while i <= n:
+            print("{:d}: {:s}".format(i, argv[i]))
+            i += 1
+
+if __name__ == "__main__":
+    import sys
+    args(sys.argv)
